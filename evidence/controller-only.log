@@ -1,0 +1,16 @@
+PASS expect game_state == 0 w1
+PASS expectvdp display 1
+PASS expectcolors 8 actual 11
+PASS expect game_state == 2 w1
+PASS expect presses == 0
+PASS expect lives == 3 w1
+PASS expect dry_turns >= 1
+PASS expect paused == 1 w1
+PASS expect lives == 0 w1
+PASS expect deaths == 3
+PASS expectvdp display 1
+PASS expect lives == 3 w1
+PASS expect presses == 0
+PASS expect loop_no == 0 w1
+PASS expectvdp display 1
+PASS controller-only script; zero active-display VDP data writes; 1108 emulated frames

@@ -1,0 +1,124 @@
+<!doctype html>
+<!--
+Embedded distribution notices: ROM / new port code; Z80 player CPU; SMSlib.
+MIT License
+
+Copyright (c) 2026 ABA Games — original Zig Saber
+Copyright (c) 2026 Zig Saber SMS port contributors — new port code and tools
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Third-party components retain their own licenses. This file does not replace
+those licenses; see THIRD_PARTY_NOTICES.md and vendor component notices.
+
+
+MIT License
+
+Copyright (c) 2019 Nicolas Allemand
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or
+distribute this software, either in source code form or as a compiled
+binary, for any purpose, commercial or non-commercial, and by any
+means.
+
+In jurisdictions that recognize copyright laws, the author or authors
+of this software dedicate any and all copyright interest in the
+software to the public domain. We make this dedication for the benefit
+of the public at large and to the detriment of our heirs and
+successors. We intend this dedication to be an overt act of
+relinquishment in perpetuity of all present and future rights to this
+software under copyright law.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+For more information, please refer to <http://unlicense.org>
+
+
+CRT source license and SDCC linking exception accompany the source archive.
+-->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ZIG SABER — Master System</title>
+<style>
+:root{color-scheme:dark;--bg:#090d12;--panel:#101720;--line:#24303b;--ink:#e7edf4;--muted:#8c9aa9;--cyan:#56dcfa;--cream:#ffe6a1}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,a{touch-action:manipulation}button{font:inherit;color:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}header{max-width:1152px;margin:auto;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.wordmark{font-family:monospace;font-weight:900;font-size:18px;letter-spacing:3px}.wordmark b{color:var(--cyan)}.system{font:11px monospace;letter-spacing:2px;color:var(--muted);display:flex;align-items:center;gap:9px}.dot{width:6px;height:6px;background:var(--cyan);box-shadow:0 0 10px #56dcfa55}main{max-width:1152px;margin:0 auto;padding:48px 32px 28px}.eyebrow{font:11px monospace;letter-spacing:2.5px;color:var(--cyan);margin:0 0 14px}h1{font-size:clamp(28px,4vw,44px);line-height:1.08;letter-spacing:-1.5px;margin:0 0 12px}h1 span{color:var(--cream)}.intro{color:var(--muted);font-size:15px;line-height:1.6;margin:0 0 30px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 274px;gap:26px}.machine{background:#030507;border:1px solid #344351;box-shadow:0 15px 65px #0006;position:relative}.machine:before,.machine:after{content:"";position:absolute;pointer-events:none;width:14px;height:14px;border-color:var(--cyan);z-index:1}.machine:before{left:-1px;top:-1px;border-left:2px solid var(--cyan);border-top:2px solid var(--cyan)}.machine:after{right:-1px;bottom:-1px;border-right:2px solid var(--cyan);border-bottom:2px solid var(--cyan)}.machinebar{height:38px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:10px monospace;letter-spacing:1.5px;color:var(--muted)}.machinebar strong{color:var(--cyan);font-weight:400}.display{padding:16px;background:#000;display:flex;justify-content:center;align-items:center;min-height:250px}canvas{display:block;width:100%;max-width:768px;aspect-ratio:4/3;background:#000;image-rendering:pixelated;touch-action:none;outline:none}.toolbar{border-top:1px solid var(--line);padding:12px;display:flex;gap:8px;align-items:center}.tool{border:1px solid var(--line);background:var(--panel);padding:9px 12px;font:11px monospace;color:var(--muted)}.tool:hover{border-color:var(--muted);color:var(--ink)}.toolbar .right{margin-left:auto}.action{display:block;width:100%;padding:17px 10px;background:var(--cyan);color:#071319;border:0;font:900 12px monospace;letter-spacing:1.5px;box-shadow:0 3px 0 #237c91;user-select:none;touch-action:none}.action:active,.action.is-down{transform:translateY(2px);box-shadow:0 1px 0 #237c91;background:#a3efff}.action:disabled{opacity:.5;cursor:wait}.keyline{font:11px monospace;text-align:center;color:var(--muted);margin:15px 0 24px}kbd{color:var(--ink);border:1px solid #384453;background:#17212c;padding:3px 5px;border-radius:3px;font:10px monospace}.card{border:1px solid var(--line);padding:20px;margin-top:16px;background:var(--panel)}.card h2{font:11px monospace;color:var(--muted);letter-spacing:2px;margin:0 0 18px}.rule{display:grid;grid-template-columns:22px 1fr;gap:10px;margin-bottom:20px}.rule:last-child{margin-bottom:0}.rule .n{font:11px monospace;color:var(--cyan);padding-top:3px}.rule h3{font-size:13px;font-weight:650;margin:0 0 5px}.rule p{font-size:12px;line-height:1.6;color:var(--muted);margin:0}.data{display:flex;justify-content:space-between;font:11px monospace;margin-bottom:14px}.data:last-child{margin-bottom:0}.data span{color:var(--muted)}.data strong{font-weight:400;color:var(--cream)}.download{display:flex;margin-top:16px;justify-content:space-between;align-items:center;text-decoration:none;color:var(--ink);font:12px monospace;border:1px solid var(--line);padding:16px}.download:hover{border-color:var(--cyan)}.download span{color:var(--cyan)}.caption{color:var(--muted);font-size:11px;line-height:1.7;margin:14px 0 0}.bottom{margin-top:30px;border-top:1px solid var(--line);padding-top:20px;display:flex;gap:20px;justify-content:space-between;color:var(--muted);font-size:11px;line-height:1.7}.bottom a{color:var(--muted)}.tag{font:10px monospace;letter-spacing:1px;border:1px solid var(--line);padding:4px 7px;margin-left:8px}.fail{padding:24px;color:#ffaca7;white-space:pre-wrap;font:12px monospace}.expanded{position:fixed;inset:0;z-index:50;background:#000;display:flex;flex-direction:column}.expanded .display{flex:1;min-height:0}.expanded canvas{height:100%;max-height:calc(100vh - 120px);width:auto;max-width:100%;object-fit:contain}.expanded .toolbar{flex-shrink:0}.expanded .machinebar{flex-shrink:0}@media(max-width:820px){header{padding:22px}.system{font-size:9px;letter-spacing:1px}main{padding:30px 22px}.layout{grid-template-columns:1fr}.aside{display:grid;grid-template-columns:1fr 1fr;gap:16px}.aside .start{grid-column:1/-1}.keyline{margin-bottom:2px}.card{margin:0}.download{margin:0}.caption{grid-column:1/-1;margin:0}.bottom{flex-direction:column;gap:10px}.display{padding:8px}.intro{font-size:13px}}@media(max-width:480px){main{padding:26px 14px}header{padding:20px 14px}.wordmark{font-size:14px}.aside{grid-template-columns:1fr}.system{font-size:8px}.tool{font-size:10px;padding:9px}.display{padding:0}.machinebar{padding:0 10px}.toolbar{padding:9px;gap:6px}.bottom .tag{margin-left:0;margin-right:8px}}
+</style></head><body>
+<header><div class="wordmark">ZIG <b>SABER</b></div><div class="system"><i class="dot"></i>SEGA MASTER SYSTEM</div></header>
+<main><p class="eyebrow">ONE-BUTTON TERRAIN SHOOTER</p><h1>Turn. Fire.<br><span>Wait for the cut.</span></h1><p class="intro">A real Master System cartridge, running right here. Three zones. Two loops. One button.</p>
+<div class="layout"><section><div class="machine" id="machine"><div class="machinebar"><span>256 × 192 <strong>· NTSC</strong></span><span id="status">LOADING CARTRIDGE</span></div><div class="display"><canvas id="screen" width="256" height="192" tabindex="0" aria-label="Zig Saber Master System game. Space to turn and fire. P to pause."></canvas></div><div class="toolbar"><button class="tool" id="pause">PAUSE [P]</button><button class="tool" id="sound">SOUND OFF [M]</button><button class="tool" id="reset">RESET</button><button class="tool right" id="expand">EXPAND ↗</button></div></div><p class="caption">Tap the screen or use the button. Holding does not repeat. This player emulates the bundled .sms ROM — it is not a JavaScript remake.</p></section>
+<aside class="aside"><div class="start"><button class="action" id="action" disabled>LOADING…</button><div class="keyline"><kbd>SPACE</kbd> / <kbd>Z</kbd> / <kbd>X</kbd> / <kbd>ENTER</kbd></div></div><section class="card"><h2>FLIGHT MANUAL</h2><div class="rule"><div class="n">01</div><div><h3>Every press turns and fires.</h3><p>Your ship climbs or dives on its own. A press reverses it. Rock is always fatal.</p></div></div><div class="rule"><div class="n">02</div><div><h3>Close cuts pay more.</h3><p>Wait for enemies to enter your blade’s reach. Cut a red train completely to earn a laser capsule.</p></div></div><div class="rule"><div class="n">03</div><div><h3>Steel needs the blade.</h3><p>The wave bounces off armour. Cut the gate’s plates, then send a wave into an open row.</p></div></div></section><section class="card"><h2>CARTRIDGE</h2><div class="data"><span>ROM</span><strong>64 KiB · Sega mapper</strong></div><div class="data"><span>CONTROL</span><strong>Button 1 or 2</strong></div><div class="data"><span>CAMPAIGN</span><strong>3 zones × 2 loops</strong></div><div class="data"><span>BEST 5</span><strong id="save-state">SRAM supported</strong></div></section><a class="download" id="download" download="zig-saber.sms" href="#">DOWNLOAD ROM <span>↓ .SMS</span></a><p class="caption">For accurate emulation or flash cartridges, use the ROM in Emulicious, another SMS emulator, or compatible hardware. PAL and physical hardware have not been verified.</p></aside></div>
+<div class="bottom"><div>Original game © 2026 <a href="https://github.com/abagames/agentic-gamedev-games/tree/main/docs/zig-saber" target="_blank" rel="noreferrer">ABA Games</a> · MIT<br>Port built with SDCC and devkitSMS. Z80 player core by superzazu.</div><div><span class="tag">OFFLINE PLAYER</span><span class="tag">REAL Z80 ROM</span></div></div>
+</main>
+<script>
+'use strict';
+const ROM64='__ROM_BASE64__', WASM64='__WASM_BASE64__', SYM=__SYMBOLS__;
+const $=id=>document.getElementById(id), canvas=$('screen'), ctx=canvas.getContext('2d',{alpha:false});
+const FRAME_MS=1000*262*228/3579545;
+const image=ctx.createImageData(256,192), keys=new Set();let emu=null,ready=false,running=false,taps=0,pointer=false,expanded=false;
+let ac=null,audioNode=null,muted=true;const ring=new Float32Array(65536);let ri=0,wi=0,queued=0,last=0,acc=0,lastSaved=0;
+const buttons=new Set(['Space','KeyZ','KeyX','Enter','ArrowUp','ArrowDown']);
+function bytes(s){return Uint8Array.from(atob(s),c=>c.charCodeAt(0));}
+$('download').href='data:application/octet-stream;base64,'+ROM64;
+function byte(n){return emu.sms_read(SYM[n]);}
+function syncUI(){const state=byte('game_state'), paused=byte('paused');$('status').textContent=paused?'PAUSED':byte('is_demo')?'ATTRACT DEMO':['TITLE','READY','IN FLIGHT','SHIP LOST','GAME OVER','LOOP CLEAR','BEST 5'][state]||'IN FLIGHT';$('pause').textContent=paused?'RESUME [P]':'PAUSE [P]';$('action').textContent=!running?'START / TURN + FIRE':paused?'RESUME':'TURN + FIRE';}
+function paint(){image.data.set(new Uint8Array(emu.memory.buffer,emu.sms_video(),256*192*4));ctx.putImageData(image,0,0);syncUI();}
+function pushAudio(){if(!ac||muted)return;const n=emu.sms_audio_count(), data=new Float32Array(emu.memory.buffer,emu.sms_audio(),n);if(queued>12000){ri=wi;queued=0;}for(let i=0;i<n;i++){ring[wi]=data[i];wi=(wi+1)&65535;if(queued<65535)queued++;else ri=(ri+1)&65535;}}
+function unlockAudio(){if(!ac){try{ac=new (window.AudioContext||window.webkitAudioContext)({sampleRate:48000});audioNode=ac.createScriptProcessor(2048,0,1);audioNode.onaudioprocess=e=>{const out=e.outputBuffer.getChannelData(0);for(let i=0;i<out.length;i++){if(queued){out[i]=muted?0:ring[ri];ri=(ri+1)&65535;queued--;}else out[i]=0;}};audioNode.connect(ac.destination);}catch(e){$('sound').textContent='AUDIO UNAVAILABLE';return;}}ac.resume().catch(()=>{});}
+function startPress(){if(!ready)return;unlockAudio();if(!running){running=true;muted=false;$('sound').textContent='SOUND ON [M]';last=performance.now();acc=0;}taps=2;}
+function pressDown(e){e.preventDefault();pointer=true;startPress();$('action').classList.add('is-down');if(e.target.setPointerCapture)e.target.setPointerCapture(e.pointerId);}
+function pressUp(e){if(e)e.preventDefault();pointer=false;$('action').classList.remove('is-down');}
+for(const el of [canvas,$('action')]){el.addEventListener('pointerdown',pressDown);el.addEventListener('pointerup',pressUp);el.addEventListener('pointercancel',pressUp);}
+window.addEventListener('keydown',e=>{if(buttons.has(e.code)){e.preventDefault();if(!e.repeat){keys.add(e.code);startPress();}}else if((e.code==='KeyP'||e.code==='Escape')&&!e.repeat){e.preventDefault();if(ready&&running)emu.sms_pause();}else if(e.code==='KeyM'&&!e.repeat){e.preventDefault();toggleSound();}});
+window.addEventListener('keyup',e=>{keys.delete(e.code);if(buttons.has(e.code))e.preventDefault();});
+function autoPause(){keys.clear();pointer=false;taps=0;if(ready&&running&&byte('game_state')!==0&&byte('game_state')!==6&&!byte('is_demo')&&!byte('paused'))emu.sms_pause();ri=wi;queued=0;}
+window.addEventListener('blur',autoPause);document.addEventListener('visibilitychange',()=>{if(document.hidden)autoPause();last=performance.now();acc=0;});
+$('pause').onclick=()=>{if(ready&&running){unlockAudio();emu.sms_pause();}};
+function toggleSound(){unlockAudio();muted=!muted;ri=wi;queued=0;$('sound').textContent=muted?'SOUND OFF [M]':'SOUND ON [M]';}
+$('sound').onclick=toggleSound;
+$('reset').onclick=()=>{if(!ready)return;save();keys.clear();pointer=false;taps=0;ri=wi;queued=0;emu.sms_init();for(let i=0;i<120;i++)emu.sms_frame(0);paint();};
+$('expand').onclick=()=>{expanded=!expanded;$('machine').classList.toggle('expanded',expanded);$('expand').textContent=expanded?'CLOSE ↙':'EXPAND ↗';};
+function save(){if(!ready)return;try{if(emu.sms_sram_changed()){const s=new Uint8Array(emu.memory.buffer,emu.sms_sram(),16384);localStorage.setItem('zig-saber-sms-sram-v1',btoa(String.fromCharCode(...s)));$('save-state').textContent='BEST 5 saved';}}catch(e){$('save-state').textContent='Session only';}}
+function loop(now){if(!last)last=now;const dt=Math.min(100,now-last);last=now;if(ready&&running&&!document.hidden){acc+=dt;while(acc>=FRAME_MS){const input=(pointer||keys.size||taps>0)?16:0;emu.sms_frame(input);if(taps)taps--;pushAudio();acc-=FRAME_MS;}paint();if(now-lastSaved>2000){save();lastSaved=now;}}requestAnimationFrame(loop);}
+(async()=>{try{const loaded=await WebAssembly.instantiate(bytes(WASM64),{});emu=loaded.instance.exports;new Uint8Array(emu.memory.buffer,emu.sms_rom(),65536).set(bytes(ROM64));try{const data=localStorage.getItem('zig-saber-sms-sram-v1');if(data)new Uint8Array(emu.memory.buffer,emu.sms_sram(),16384).set(bytes(data));}catch(e){$('save-state').textContent='Session only';}emu.sms_init();for(let i=0;i<120;i++)emu.sms_frame(0);ready=true;$('action').disabled=false;paint();requestAnimationFrame(loop);}catch(e){$('status').textContent='PLAYER UNAVAILABLE';const div=document.createElement('div');div.className='fail';div.textContent='This browser could not start WebAssembly. Download zig-saber.sms and use an SMS emulator.\n'+e.message;canvas.replaceWith(div);$('action').textContent='USE THE .SMS ROM';}})();
+window.addEventListener('pagehide',save);
+</script></body></html>

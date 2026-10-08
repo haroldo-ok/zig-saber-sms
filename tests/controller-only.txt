@@ -1,0 +1,39 @@
+symbols zig-saber.noi
+run 180
+expect game_state == 0 w1
+expectvdp display 1
+expectcolors 8
+screenshot evidence/title.ppm
+hold 1
+waituntil cam_x > 316 300
+expect game_state == 2 w1
+expect presses == 0
+expect lives == 3 w1
+hold none
+run 2
+tap 1
+waituntil presses == 1 20
+tap 2
+waituntil presses == 2 20
+expect dry_turns >= 1
+pause
+waituntil paused == 1 60 w1
+run 12
+expect paused == 1 w1
+pause
+waituntil paused == 0 60 w1
+hold none
+waituntil game_state == 4 2000 w1
+expect lives == 0 w1
+expect deaths == 3
+run 30
+expectvdp display 1
+screenshot evidence/game-over.ppm
+run 50
+tap 1
+waituntil game_state == 1 100 w1
+expect lives == 3 w1
+expect presses == 0
+expect loop_no == 0 w1
+run 30
+expectvdp display 1

@@ -1,0 +1,14 @@
+{
+  "source": "extracted zig-saber-sms-source.zip, no generated build directory or precompiled SMSlib/CRT objects",
+  "compiler": "SDCC 4.5.0",
+  "commands": [
+    "make -j2 test player",
+    "make assets"
+  ],
+  "rom_sha256": "2a3e6d233d785481fc8b5f8afcb8bb5a70e72e80b4f3f8a839beb5a29eaf034a",
+  "byte_identical_rom": true,
+  "passed_host_rule_checks": 139,
+  "passed_rom_checks": 68,
+  "matched_upstream_contracts": 14,
+  "asset_regeneration": "byte-identical assets/graphics.bin, assets/course.bin, src/assets.h, src/sound_ids.h and src/sound_data.h"
+}

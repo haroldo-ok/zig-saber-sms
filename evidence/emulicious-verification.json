@@ -1,0 +1,24 @@
+{
+  "emulator": "Emulicious",
+  "release_notes_date": "2026-03-27",
+  "rom_sha256": "2a3e6d233d785481fc8b5f8afcb8bb5a70e72e80b4f3f8a839beb5a29eaf034a",
+  "emulator_jar_sha256": "db185a1ed0af3bdab5ebdeb254612d02d3848bac155dbc89333d1b04e21c371d",
+  "scope": "Independent emulator smoke check. Unmodified ROM; synthetic keyboard input only; no RAM fixtures or injected gameplay calls.",
+  "observed": [
+    "title boots with legible tile graphics",
+    "actual attract demo runs",
+    "button 1 (A) starts a fresh real game",
+    "console PAUSE (Enter, held 120 ms) displays PAUSED",
+    "left 280 pixels of 300-pixel emulated content stable across 600 ms while paused; right entry marker visually blinks",
+    "console PAUSE resumes; ship and terrain move"
+  ],
+  "window_reported": "100% (60 fps); emulator speed, not a game-logic FPS guarantee",
+  "audio": "muted; not auditioned",
+  "not_checked": [
+    "full campaign",
+    "gate mechanics in this independent emulator",
+    "SRAM in this independent emulator",
+    "physical hardware",
+    "PAL"
+  ]
+}

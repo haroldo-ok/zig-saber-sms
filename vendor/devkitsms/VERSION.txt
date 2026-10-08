@@ -1,0 +1,16 @@
+devkitSMS source snapshot
+https://github.com/sverx/devkitSMS
+Commit: b172c7433ff690136fee47504a5fd427f62f2d16
+
+SMSlib.h and SMSlib source are from this same snapshot. Do not mix different
+headers or calling conventions. This port's Makefile compiles the required
+SMSlib modules and assembles crt0_sms.s with the active SDCC toolchain.
+The verified build uses SDCC 4.5.0. No precompiled library is needed.
+
+SMSlib and ihx2sms: public domain / Unlicense.
+CRT: GPL-2.0-or-later with the SDCC linking special exception in its header.
+See LICENSE-SMSlib, LICENSE-ihx2sms, COPYING.txt, LICENSES.txt and source headers.
+
+The original skill snapshot also supplied prebuilt artifacts. They are not
+used by this Makefile and are omitted from the distributable source archive.
+This port uses its own PSG driver and does not link PSGlib.

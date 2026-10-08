@@ -1,0 +1,19 @@
+{
+  "rom_sha256": "2a3e6d233d785481fc8b5f8afcb8bb5a70e72e80b4f3f8a839beb5a29eaf034a",
+  "rom_bytes": 65536,
+  "real_rom_checks": 68,
+  "host_rule_checks": 139,
+  "upstream_contract_scenarios": 14,
+  "active_display_vdp_writes": 0,
+  "audio_peak": 0.269358,
+  "controller_only": "title / play / edge inputs / PAUSE / deaths / game over / restart / attract",
+  "ram_fixtures": "weapons, trains, capsules, gems, armour, decay, zones, gate, both-loop state transitions, tally, SRAM",
+  "not_verified": [
+    "physical SMS hardware",
+    "PAL 50 Hz timing",
+    "Power Base Converter",
+    "full human campaign playthrough",
+    "human audio audition",
+    "general emulator compatibility outside tested cores"
+  ]
+}

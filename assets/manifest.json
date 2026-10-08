@@ -1,0 +1,9 @@
+{
+  "graphics_used": 15104,
+  "course_used": 7688,
+  "sprite_tiles": 116,
+  "logo_tiles": 103,
+  "game_tiles": 320,
+  "vertical_scale": "11/13",
+  "source_commit": "7aad21b8dde2a1b40188eebf29474ce4727c8eb6"
+}

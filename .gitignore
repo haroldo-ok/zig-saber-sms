@@ -1,0 +1,14 @@
+/build/
+/*.zip
+/*.noi
+/*.map
+/PLAY.html
+/evidence/*.ppm
+/evidence/*.prof
+/evidence/*.state
+/vendor/smstest/
+/vendor/devkitsms/*.rel
+/vendor/devkitsms/*.rst
+/vendor/devkitsms/*.lst
+/vendor/devkitsms/*.lib
+__pycache__/

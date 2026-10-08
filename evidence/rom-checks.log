@@ -1,0 +1,69 @@
+PASS unmodified cartridge: title, held-button edge, turn, dry turn, PAUSE/NMI, three deaths, game over, restart (our controller-only harness)
+PASS native player core boots and starts the real cartridge
+PASS controller-only PAUSE stops physics
+PASS controller-only NMI resumes physics
+PASS controller-only repeated press edges reach real play
+PASS controller-only VDP writes stay outside active display
+PASS controller-only attract demo runs the same ROM rules
+PASS controller input takes over attract and starts a fresh game
+PASS Z80 Enemy layout matches generated fixture offsets
+PASS Z80 Pending layout matches generated fixture offsets
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: carrier train multi-cut, doubling score, capsule drop
+PASS ROM fixture: cut returns energy immediately and raises chain
+PASS ROM fixture: press buffered through cut hit-stop
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: shell stops the far wave
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: level-3 laser lengthens the same blade
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: capsule pickup loads level 1 and clock
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: sealed-lane capsule grants top laser and X5 chain
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: laser armour burns every level, kills contact enemy, shields ship
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: rock is fatal even with armour
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: timed laser and chain decay one step, not all at once
+PASS fixture scene completed its display-off rebuild
+PASS ROM pressure fixture: three one-frame taps captured by VBlank edge latch
+PASS ROM pressure fixture: dense pools and sprite pressure remain bounded
+PASS ROM pressure fixture: zero active-display VDP data writes
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: gem chain score multiplied by cut chain; laser clock refilled
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: canyon exit pays no-miss bonus once
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: cavern exit reaches fortress
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: course end starts the 24-hit gate
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: blade opens a thrown plate, at plain gate score
+PASS ROM fixture: ordinary second button press sends wave through the opened row
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: closed core deflects wave
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: long blade itself never damages core; wave does
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: half-health gate enters overdrive
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: gate timeout closes and leaves, not a free victory
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: wave destroys gate; gate and loop bonuses paid
+PASS ROM fixture: first victory starts harder loop 2 without a false ALL CLEAR
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: second gate is destroyed by a real wave, with doubled loop bonus
+PASS ROM fixture: second gate victory counts ships and finishes ALL CLEAR
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: ALL CLEAR pays ship bonus without awarding extra ships
+PASS ROM fixture: final tally and ALL CLEAR reach game over
+PASS ROM fixture: VBlank patch queue remains bounded
+PASS ROM fixtures: no VRAM/CRAM data writes during active display
+PASS native player core boots and starts the real cartridge
+PASS fixture scene completed its display-off rebuild
+PASS ROM fixture: BEST 5 written to SRAM with valid checksum
+PASS ROM fixture: SRAM ranking survives an emulator reset
+PASS native player core boots and starts the real cartridge
+PASS actual PSG output is non-silent and not digitally clipped
+PASS 14 mechanical contracts match untouched upstream/core.js (normalized vertical coordinates)

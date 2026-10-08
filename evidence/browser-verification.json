@@ -1,0 +1,28 @@
+{
+  "browser": "Chromium / Playwright",
+  "checks_passed": 20,
+  "rom_sha256": "2a3e6d233d785481fc8b5f8afcb8bb5a70e72e80b4f3f8a839beb5a29eaf034a",
+  "checks": [
+    "HTML boots the actual cartridge to TITLE",
+    "action button becomes available",
+    "embedded ROM is byte-identical to native download",
+    "holding START does not repeat or fire at READY transition",
+    "keyboard tap turns the native ship",
+    "user gesture starts WebAudio",
+    "P / console NMI pauses native physics",
+    "resume button is consumed without firing",
+    "expand control works",
+    "sound toggle works",
+    "reset reboots native ROM state",
+    "browser download returns the exact cartridge bytes",
+    "SRAM fixture: native ranking serialized to browser storage",
+    "SRAM fixture: ranking survives page reload",
+    "no uncaught JavaScript errors",
+    "offline file loads without external resources",
+    "mobile layout has no horizontal overflow",
+    "touch control starts the actual cartridge",
+    "ROM download remains usable if WebAssembly fails",
+    "blocked storage degrades to a playable session"
+  ],
+  "save_checks_use_explicit_ram_fixtures": true
+}
